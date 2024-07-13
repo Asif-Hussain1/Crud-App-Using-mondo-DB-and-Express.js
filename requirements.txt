@@ -1,0 +1,6 @@
+body-parser
+cors
+dotenv
+express
+mongoose
+path

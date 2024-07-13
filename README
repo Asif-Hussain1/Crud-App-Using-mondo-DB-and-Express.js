@@ -1,0 +1,3 @@
+you have to give your mongodb local or online account link in server.js file
+you have to install all dependencies which are written in requirements.txt file
+you can run the project by writing a command "node backend/server.js"
