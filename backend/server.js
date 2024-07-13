@@ -15,14 +15,12 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-
 app.use('/student',router);
 app.use('/admin',adminRouter);
 
-
-mongoose.connect('mongodb://localhost:27017/').then(()=>{
+mongoose.connect(process.env.DATABASE_URL).then(()=>{
     console.log('Database connected');
     app.listen(process.env.PORT || 3000, ()=>{
-        console.log('Server is running on http://localhost:3000');
+        console.log(`Server is running on http://localhost:${process.env.PORT}`);
     });
 })
