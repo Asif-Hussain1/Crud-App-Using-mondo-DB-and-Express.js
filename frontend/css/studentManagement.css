@@ -1,83 +1,83 @@
-h4{
-    color:white;
-   
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-#login{
+body {
+    background-color: #f8f9fa;
+}
+
+h4 {
+    color: white;
+}
+
+#login {
     padding: 7px;
     font-size: 20px;
     background-color: lightgreen;
-    color:black;
+    color: black;
     border-radius: 10px;
 }
 
-*{
-    padding:0;
-    margin: 0;
-    box-sizing: border-box;
-    }
-    
-    nav{
-        display: flex;
-        justify-content:space-between;
-        align-items: center;
-        background-color: black;
-        position: sticky;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        padding: 5px;
-        color: white;
-    }
-
-    .container{
-        /* width: 700px;
-        height: 700px; */
-        /* border: 2px solid black; */
-        margin: 100px auto;
-        background-color: rgb(201, 230, 190);
-        box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.6),-3px -3px 5px 3px rgba(0, 0, 0, 0.6);
-        border-radius: 10px;
-    }
-
-    .table{
-        border-top: 2px solid black;
-        margin-top: 10px;
-        margin-bottom: 10px;
-       
-        
-    }
-    .containertable{
-        border-top: 2px solid black;
-    }
-
-    .tableScroll{
-        overflow-y: scroll;
-    }
-.tableHeading{
-    display: block;
-    text-align: center;
-
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    color: white;
+    flex-wrap: wrap; /* Add flex-wrap for better responsiveness */
 }
 
-.formHeading{
+.container {
+    width: 80%; /* Initial width */
+    margin: 50px auto;
+    background-color: rgb(201, 230, 190);
+    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.6), -3px -3px 5px 3px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.table {
+    border-top: 2px solid black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.containertable {
+    border-top: 2px solid black;
+}
+
+.tableScroll {
+    overflow-y: scroll;
+    max-height: 300px;
+}
+
+.tableHeading,
+.formHeading {
     text-align: center;
 }
 
-#add{
+#add {
     width: 120px;
     display: block;
-    margin: 2px auto;
+    margin: 10px auto;
 }
 
-form{
+form {
     margin-bottom: 30px;
 }
-footer{
+
+footer {
     background-color: black;
     color: white;
     text-align: center;
-    position: absolute;
+    position: relative; /* Changed to relative */
     bottom: 0;
     left: 0;
     width: 100%;
@@ -85,4 +85,77 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .container {
+        width: 90%; /* Adjust width for larger screens */
+    }
+}
+
+@media (max-width: 992px) {
+    nav a {
+        font-size: 18px;
+        padding: 5px;
+    }
+
+    #login {
+        font-size: 18px;
+        padding: 5px;
+    }
+
+    .container {
+        width: 95%; /* Adjust width for medium screens */
+    }
+
+    .tableScroll {
+        max-height: 250px; /* Adjust max height for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    nav a {
+        margin: 5px 0;
+        font-size: 16px;
+    }
+
+    #login {
+        font-size: 16px;
+    }
+
+    .container {
+        width: 98%; /* Adjust width for small screens */
+    }
+
+    .tableScroll {
+        max-height: 200px; /* Adjust max height for small screens */
+    }
+}
+
+@media (max-width: 576px) {
+    nav {
+        align-items: flex-start;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    #login {
+        font-size: 14px;
+    }
+
+    .container {
+        width: 100%; /* Adjust width for extra small screens */
+        padding: 10px; /* Adjust padding for extra small screens */
+    }
+
+    .tableScroll {
+        max-height: 150px; /* Adjust max height for extra small screens */
+    }
 }

@@ -1,73 +1,134 @@
-#carouselExampleIndicators{
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    flex-wrap: wrap; /* Add flex-wrap for better responsiveness */
+}
+
+nav a {
+    padding: 7px;
+    font-size: 20px;
+    background-color: white;
+    color: black;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 1s;
+}
+
+nav a:hover {
+    background-color: beige;
+}
+
+.active {
+    background-color: lightgreen;
+}
+
+#login {
+    padding: 7px;
+    font-size: 20px;
+    background-color: lightgreen;
+    color: black;
+    border-radius: 10px;
+}
+
+h4 {
+    color: white;
+}
+
+#carouselExampleIndicators {
     height: 600px;
 }
-.container-fluid{
+
+.container-fluid {
     height: 90vh;
     border: 2px solid black;
     overflow: hidden;
     padding: 0;
 }
 
-h4{
-    color:white;
-   
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    position: relative; /* Changed to relative */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#login{
-    padding: 7px;
-    font-size: 20px;
-    background-color: lightgreen;
-    color:black;
-    border-radius: 10px;
-}
-
-*{
-    padding:0;
-    margin: 0;
-    box-sizing: border-box;
+/* Responsive styles */
+@media (max-width: 1200px) {
+    #carouselExampleIndicators {
+        height: 500px;
     }
-    
-    nav{
-        display: flex;
-        justify-content:space-between;
-        align-items: center;
-        background-color: black;
-        position: sticky;
-        z-index: 1;
-        top: 0;
-        left: 0;
+}
+
+@media (max-width: 992px) {
+    nav a {
+        font-size: 18px;
         padding: 5px;
     }
-    
-    nav a{
-        padding: 7px;
-        font-size: 20px;
-        background-color: white;
-        color:black;
-        margin:10px;
-        border-radius: 5px;
-        text-decoration: none;
-        transition: 1s;
+
+    #login {
+        font-size: 18px;
+        padding: 5px;
     }
-    
-    nav a:hover{
-        background-color: beige;
+
+    #carouselExampleIndicators {
+        height: 400px;
     }
-    
-    .active{
-      background-color: lightgreen;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
     }
-    
-    footer{
-        background-color: black;
-        color: white;
-        text-align: center;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+
+    nav a {
+        margin: 5px 0;
+        font-size: 16px;
     }
+
+    #login {
+        font-size: 16px;
+    }
+
+    #carouselExampleIndicators {
+        height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    nav {
+        align-items: flex-start;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    #login {
+        font-size: 14px;
+    }
+
+    #carouselExampleIndicators {
+        height: 200px;
+    }
+}

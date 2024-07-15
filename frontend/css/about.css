@@ -1,77 +1,140 @@
-h4{
-    color:white;
-   
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-#login{
-    padding: 7px;
-    font-size: 20px;
-    background-color : blue;
-    color:black;
-    border-radius: 5px;
-}
-body{
-    background:url('https://img.freepik.com/free-photo/pieces-blue-stationery_23-2148169528.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1720742400&semt=ais_user');
+body {
+    background: url('https://img.freepik.com/free-photo/pieces-blue-stationery_23-2148169528.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1720742400&semt=ais_user');
     background-position: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    
 }
-*{
-    padding:0;
-    margin: 0;
-    box-sizing: border-box;
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    flex-wrap: wrap; /* Add flex-wrap for better responsiveness */
+}
+
+nav a {
+    padding: 7px;
+    font-size: 20px;
+    background-color: white;
+    color: black;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 1s;
+}
+
+nav a:hover {
+    background-color: beige;
+}
+
+.active {
+    background-color: lightgreen;
+}
+
+#login {
+    padding: 7px;
+    font-size: 20px;
+    background-color: blue;
+    color: black;
+    border-radius: 5px;
+}
+
+h4 {
+    color: white;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    position: relative; /* Changed to relative */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    margin: 30px auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.5), -3px -3px 5px 3px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    width: 80%; /* Initial width */
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .container {
+        width: 90%; /* Adjust width for larger screens */
     }
-    
-    nav{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: black;
-        position: sticky;
-        z-index: 1;
-        top: 0;
-        left: 0;
+}
+
+@media (max-width: 992px) {
+    nav a {
+        font-size: 18px;
         padding: 5px;
     }
-    
-    nav a{
-        padding: 7px;
-        font-size: 20px;
-        background-color: white;
-        color:black;
-        margin:10px;
-        border-radius: 5px;
-        text-decoration: none;
-        transition: 1s;
-    }
-    
-    nav a:hover{
-        background-color: beige;
-    }
-    
-    .active{
-      background-color: lightgreen;
-    }
-    
-    footer{
-        background-color: black;
-        color: white;
-        text-align: center;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+
+    #login {
+        font-size: 18px;
+        padding: 5px;
     }
 
-    .container{
-        margin: 30px auto;
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 3px 3px 5px 3px rgba(0,0,0,0.5), -3px -3px 5px 3px rgba(0,0,0,0.5);
-        padding: 10px;
+    .container {
+        width: 95%; /* Adjust width for medium screens */
     }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    nav a {
+        margin: 5px 0;
+        font-size: 16px;
+    }
+
+    #login {
+        font-size: 16px;
+    }
+
+    .container {
+        width: 98%; /* Adjust width for small screens */
+    }
+}
+
+@media (max-width: 576px) {
+    nav {
+        align-items: flex-start;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    #login {
+        font-size: 14px;
+    }
+
+    .container {
+        width: 100%; /* Adjust width for extra small screens */
+        padding: 5px; /* Adjust padding for extra small screens */
+    }
+}
