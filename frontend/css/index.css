@@ -50,6 +50,7 @@ h4 {
 
 #carouselExampleIndicators {
     height: 600px;
+    background-size: cover;
 }
 
 .container-fluid {
@@ -63,7 +64,7 @@ footer {
     background-color: black;
     color: white;
     text-align: center;
-    position: relative; /* Changed to relative */
+    position: fixed; 
     bottom: 0;
     left: 0;
     width: 100%;

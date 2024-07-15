@@ -77,7 +77,7 @@ footer {
     background-color: black;
     color: white;
     text-align: center;
-    position: relative; /* Changed to relative */
+    position: fixed; 
     bottom: 0;
     left: 0;
     width: 100%;
@@ -116,7 +116,7 @@ footer {
 
 @media (max-width: 768px) {
     nav {
-        flex-direction: column;
+        /* flex-direction: column; */
     }
 
     nav a {
