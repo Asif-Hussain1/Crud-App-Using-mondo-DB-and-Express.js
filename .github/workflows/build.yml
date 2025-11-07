@@ -15,7 +15,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # Required for correct analysis
+          fetch-depth: 0
 
       - name: Set Up Node.js
         uses: actions/setup-node@v4
@@ -32,22 +32,18 @@ jobs:
         working-directory: ./backend
         run: npm install
 
-      # Generate fake coverage (so SonarCloud does not show 0% or errors)
-      - name: Generate Frontend Coverage
+      # ✅ Run REAL frontend tests with coverage
+      - name: Frontend Jest Coverage
         working-directory: ./frontend
-        run: |
-          mkdir -p coverage
-          echo "TN:" > coverage/lcov.info
+        run: npm test -- --coverage --watchAll=false
 
-      - name: Generate Backend Coverage
+      # ✅ Run REAL backend tests with coverage
+      - name: Backend Jest Coverage
         working-directory: ./backend
-        run: |
-          mkdir -p coverage
-          echo "TN:" > coverage/lcov.info
+        run: npm test -- --coverage
 
-      # ✅ SonarCloud Scan (correct action for cloud)
+      # ✅ SonarCloud Scan
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v6
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN}}
-
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
