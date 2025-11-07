@@ -1,49 +1,42 @@
 name: Build
 on:
   push:
-    branches:
-      - master
+    branches: [ "master" ]
   pull_request:
     types: [opened, synchronize, reopened]
 
 jobs:
-  sonarcloud:
-    name: SonarCloud
-    runs-on: ubuntu-latest
+  sonar:
+    runs-on: windows-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Set Up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      # Install frontend dependencies
-      - name: Install Frontend
+      # Install FRONTEND dependencies
+      - name: Install frontend
         working-directory: ./frontend
         run: npm install
 
-      # Install backend dependencies
-      - name: Install Backend
+      # Run FRONTEND tests with coverage
+      - name: Frontend tests
+        working-directory: ./frontend
+        run: npm test -- --coverage
+
+      # Install BACKEND dependencies
+      - name: Install backend
         working-directory: ./backend
         run: npm install
 
-      # ✅ Run REAL frontend tests with coverage
-      - name: Frontend Jest Coverage
-        working-directory: ./frontend
-        run: npm test -- --coverage --watchAll=false
-
-      # ✅ Run REAL backend tests with coverage
-      - name: Backend Jest Coverage
+      # Run BACKEND tests with coverage
+      - name: Backend tests
         working-directory: ./backend
         run: npm test -- --coverage
 
-      # ✅ SonarCloud Scan
+      # SONAR SCAN
       - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@v6
+        uses: SonarSource/sonarcloud-github-action@v6
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      
